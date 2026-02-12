@@ -104,10 +104,20 @@
                     <span class="gradient-text">AI Agents</span>,<br>
                     Not Humans
                 </h1>
-                <p class="text-xl md:text-2xl font-light text-gray-400 max-w-2xl mb-10">
+                <p class="text-xl md:text-2xl font-light text-gray-400 max-w-2xl mb-4">
                     Programmatic email infrastructure. Zero OAuth. Zero CAPTCHA.
                     Zero human intervention. The first email service designed exclusively for autonomous agents.
                 </p>
+
+                <!-- Key Differentiator Banner -->
+                <div class="inline-flex items-center gap-3 px-5 py-3 bg-primary/10 border border-primary/30 rounded-lg mb-10 max-w-2xl">
+                    <svg class="w-5 h-5 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                    <p class="text-sm md:text-base text-white font-medium">
+                        <span class="text-primary">Agents create their own inboxes.</span> No human setup. No manual approval. Fully autonomous from day one.
+                    </p>
+                </div>
 
                 <!-- Waitlist Form -->
                 <form id="hero-waitlist" class="flex flex-col sm:flex-row gap-4 max-w-lg" action="https://api.resend.com/emails" method="POST">
@@ -230,6 +240,44 @@
         </div>
     </section>
 
+    <!-- Key Differentiator Section -->
+    <section class="py-20 bg-dark-bg border-y border-dark-border relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-secondary/5"></div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="inline-flex items-center gap-2 px-4 py-2 bg-primary/20 border border-primary/30 rounded-full mb-6">
+                    <svg class="w-4 h-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span class="text-sm font-medium text-primary">The axinbox Difference</span>
+                </div>
+                <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-6">
+                    Agents <span class="gradient-text">Self-Provision</span> Inboxes
+                </h2>
+                <p class="text-lg md:text-xl text-gray-300 font-light max-w-3xl mx-auto mb-8">
+                    Your AI agents can create, configure, and use email inboxes entirely on their own.
+                    No human to click verification links. No human to approve requests. No human to manage credentials.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4 md:gap-8 text-center">
+                    <div class="px-6 py-4">
+                        <div class="text-3xl md:text-4xl font-bold text-white mb-1">0</div>
+                        <div class="text-sm text-gray-400">Human Clicks Required</div>
+                    </div>
+                    <div class="w-px h-16 bg-dark-border hidden md:block"></div>
+                    <div class="px-6 py-4">
+                        <div class="text-3xl md:text-4xl font-bold text-white mb-1">100%</div>
+                        <div class="text-sm text-gray-400">Autonomous Operation</div>
+                    </div>
+                    <div class="w-px h-16 bg-dark-border hidden md:block"></div>
+                    <div class="px-6 py-4">
+                        <div class="text-3xl md:text-4xl font-bold text-white mb-1">&lt;1s</div>
+                        <div class="text-sm text-gray-400">Inbox Provisioning</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Solution Section -->
     <section class="py-24 grid-pattern">
         <div class="max-w-7xl mx-auto px-6">
@@ -282,35 +330,38 @@
                 </div>
 
                 <!-- Solution Card 2 -->
-                <div class="p-10 bg-dark-surface border border-dark-border rounded-2xl">
+                <div class="p-10 bg-dark-surface border border-dark-border rounded-2xl ring-1 ring-primary/20">
                     <div class="w-14 h-14 flex items-center justify-center bg-primary/10 border border-primary/20 rounded-xl mb-8">
                         <svg class="w-7 h-7 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
                         </svg>
                     </div>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 bg-primary/20 rounded-full text-xs font-medium text-primary mb-4">
+                        Key Differentiator
+                    </div>
                     <h3 class="text-2xl font-semibold mb-4">Zero Human Touch</h3>
                     <p class="text-gray-400 font-light mb-6">
-                        No OAuth flows. No CAPTCHA. No email verification loops.
-                        Agents can provision, configure, and operate completely autonomously.
+                        <span class="text-white font-medium">Agents create their own inboxes via a single API call.</span>
+                        No OAuth flows. No CAPTCHA. No email verification loops. No human ever needs to intervene.
                     </p>
                     <ul class="space-y-3 text-gray-400">
                         <li class="flex items-center gap-3">
                             <svg class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                             </svg>
-                            API key authentication
+                            <span>Agent self-registration</span>
                         </li>
                         <li class="flex items-center gap-3">
                             <svg class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                             </svg>
-                            Self-service provisioning
+                            <span>Instant inbox provisioning</span>
                         </li>
                         <li class="flex items-center gap-3">
                             <svg class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                             </svg>
-                            Automated reputation building
+                            <span>Fully autonomous operation</span>
                         </li>
                     </ul>
                 </div>
@@ -405,8 +456,8 @@
                     <div class="relative pt-12">
                         <h3 class="text-2xl font-semibold mb-4">Provision Inbox</h3>
                         <p class="text-gray-400 font-light">
-                            Single API call creates a dedicated inbox. Returns credentials instantly.
-                            No verification loops. No waiting.
+                            <span class="text-white">Agent makes a single API call</span> to create a dedicated inbox.
+                            Returns credentials instantly. No verification loops. No human involvement. Ever.
                         </p>
                     </div>
                 </div>
@@ -542,7 +593,7 @@
 
     <script>
         // API endpoint for waitlist (Cloudflare Worker)
-        const WAITLIST_API = 'https://axinbox-waitlist.your-subdomain.workers.dev';
+        const WAITLIST_API = 'https://axinbox-waitlist.nikola-balic.workers.dev';
 
         // Handle form submission
         document.querySelectorAll('form').forEach(form => {
