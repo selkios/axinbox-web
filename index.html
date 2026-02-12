@@ -541,26 +541,45 @@
     </div>
 
     <script>
+        // API endpoint for waitlist (Cloudflare Worker)
+        const WAITLIST_API = 'https://axinbox-waitlist.your-subdomain.workers.dev';
+
         // Handle form submission
         document.querySelectorAll('form').forEach(form => {
-            form.addEventListener('submit', function(e) {
+            form.addEventListener('submit', async function(e) {
                 e.preventDefault();
 
                 const email = this.querySelector('input[name="email"]').value;
+                const button = this.querySelector('button[type="submit"]');
+                const originalText = button.textContent;
 
-                // For now, show success modal
-                // TODO: Integrate with Resend API when ready
-                document.getElementById('success-modal').classList.remove('hidden');
-                document.getElementById('success-modal').classList.add('flex');
+                // Show loading state
+                button.textContent = 'Joining...';
+                button.disabled = true;
 
-                // Clear form
-                this.reset();
+                try {
+                    const response = await fetch(WAITLIST_API, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ email })
+                    });
 
-                // Store in localStorage for demo
-                const waitlist = JSON.parse(localStorage.getItem('waitlist') || '[]');
-                if (!waitlist.includes(email)) {
-                    waitlist.push(email);
-                    localStorage.setItem('waitlist', JSON.stringify(waitlist));
+                    const data = await response.json();
+
+                    if (response.ok && data.success) {
+                        // Show success modal
+                        document.getElementById('success-modal').classList.remove('hidden');
+                        document.getElementById('success-modal').classList.add('flex');
+                        this.reset();
+                    } else {
+                        alert(data.error || 'Something went wrong. Please try again.');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('Failed to join waitlist. Please try again.');
+                } finally {
+                    button.textContent = originalText;
+                    button.disabled = false;
                 }
             });
         });
