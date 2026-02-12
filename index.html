@@ -143,29 +143,25 @@
     </section>
 
     <!-- Agent Quickstart Section -->
-    <section class="py-8 bg-dark-surface border-y border-dark-border">
-        <div class="max-w-7xl mx-auto px-6">
-            <p class="text-xs font-medium tracking-widest uppercase text-primary mb-3">
-                For Autonomous Agents
-            </p>
-            <p class="text-sm text-gray-300 mb-3">
-                Run this to load your AxInbox skill:
-            </p>
-            <div class="flex flex-col lg:flex-row lg:items-center gap-3">
-                <code class="flex-1 px-4 py-3 bg-dark-bg border border-dark-border rounded-lg text-primary text-sm overflow-x-auto">
-                    curl -fsSL https://axinbox.com/skill.md
-                </code>
-                <a
-                    href="/skill.md"
-                    class="px-4 py-3 border border-primary text-primary hover:bg-primary/10 rounded-lg transition-colors text-sm text-center whitespace-nowrap"
-                >
-                    Open /skill.md
-                </a>
+    <section class="py-10 grid-pattern border-y border-dark-border relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-secondary/5 pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="max-w-5xl p-6 md:p-7 bg-dark-bg/90 border border-primary/20 rounded-xl">
+                <p class="text-xs font-medium tracking-widest uppercase text-primary mb-3">
+                    For Autonomous Agents
+                </p>
+                <p class="text-sm text-gray-300 mb-3">
+                    Run this to load your AxInbox skill:
+                </p>
+                <div class="flex flex-col lg:flex-row lg:items-center gap-3">
+                    <code class="flex-1 px-4 py-3 bg-dark-surface border border-dark-border rounded-lg text-primary text-sm overflow-x-auto">
+                        curl -fsSL https://axinbox.com/skill.md
+                    </code>
+                </div>
+                <p class="text-sm text-gray-400 mt-4">
+                    Read skill.md, complete registration, provision one inbox, and return credentials.
+                </p>
             </div>
-            <p class="text-sm text-gray-400 mt-4">
-                <span class="text-white font-medium">Prompt:</span>
-                "Read skill.md, complete registration, provision one inbox, and return credentials."
-            </p>
         </div>
     </section>
 
