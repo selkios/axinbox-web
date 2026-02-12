@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>axinbox - Email Built for AI Agents, Not Humans</title>
+    <meta name="description" content="Programmatic email infrastructure for AI agents. Send, receive, and manage email without OAuth, CAPTCHA, or human intervention.">
+    <meta name="keywords" content="email API, AI agents, programmatic email, email automation, agent infrastructure">
+    <meta name="author" content="axinbox">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://axinbox.com/">
+    <meta property="og:title" content="axinbox - Email Built for AI Agents">
+    <meta property="og:description" content="Programmatic email infrastructure for AI agents. No OAuth, no CAPTCHA, no human intervention required.">
+    <meta property="og:image" content="https://axinbox.com/og-image.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://axinbox.com/">
+    <meta name="twitter:title" content="axinbox - Email Built for AI Agents">
+    <meta name="twitter:description" content="Programmatic email infrastructure for AI agents. No OAuth, no CAPTCHA, no human intervention required.">
+    <meta name="twitter:image" content="https://axinbox.com/og-image.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0066FF',
+                        secondary: '#FF3366',
+                        dark: {
+                            bg: '#0A0A0A',
+                            surface: '#1A1A1A',
+                            border: '#333333',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #0066FF 0%, #FF3366 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .grid-pattern {
+            background-image:
+                linear-gradient(rgba(51, 51, 51, 0.3) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(51, 51, 51, 0.3) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .input-glow:focus {
+            box-shadow: 0 0 0 2px rgba(0, 102, 255, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-dark-bg text-white font-sans antialiased">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-dark-bg/80 backdrop-blur-md border-b border-dark-border">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="/" class="text-xl font-bold tracking-tight">
+                <span class="gradient-text">axinbox</span>
+            </a>
+            <a href="#waitlist" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">
+                Join Waitlist
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen grid-pattern flex items-center relative overflow-hidden">
+        <!-- Geometric decorative elements -->
+        <div class="absolute top-20 right-10 w-64 h-64 border border-primary/20 rotate-45 hidden lg:block"></div>
+        <div class="absolute bottom-40 left-10 w-32 h-32 border border-secondary/20 hidden lg:block"></div>
+        <div class="absolute top-1/2 right-1/4 w-2 h-2 bg-primary rounded-full hidden lg:block"></div>
+
+        <div class="max-w-7xl mx-auto px-6 pt-24 pb-16 relative z-10">
+            <div class="max-w-4xl">
+                <p class="text-primary font-medium text-sm tracking-widest uppercase mb-4">
+                    Email Infrastructure for AI Agents
+                </p>
+                <h1 class="text-5xl md:text-7xl font-bold tracking-tight leading-none mb-6">
+                    Email Built for<br>
+                    <span class="gradient-text">AI Agents</span>,<br>
+                    Not Humans
+                </h1>
+                <p class="text-xl md:text-2xl font-light text-gray-400 max-w-2xl mb-10">
+                    Programmatic email infrastructure. Zero OAuth. Zero CAPTCHA.
+                    Zero human intervention. The first email service designed exclusively for autonomous agents.
+                </p>
+
+                <!-- Waitlist Form -->
+                <form id="hero-waitlist" class="flex flex-col sm:flex-row gap-4 max-w-lg" action="https://api.resend.com/emails" method="POST">
+                    <div class="flex-1 relative">
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="Enter your email"
+                            required
+                            class="w-full px-6 py-4 bg-dark-surface border border-dark-border rounded-lg text-white placeholder-gray-500 focus:outline-none input-glow transition-all"
+                        >
+                    </div>
+                    <button
+                        type="submit"
+                        class="px-8 py-4 bg-primary hover:bg-primary/90 text-white font-semibold rounded-lg transition-all hover:scale-105 active:scale-100 whitespace-nowrap"
+                    >
+                        Join Waitlist
+                    </button>
+                </form>
+                <p class="text-sm text-gray-500 mt-4">Be the first to access. No spam, ever.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="py-24 bg-dark-surface border-y border-dark-border">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="max-w-3xl mb-16">
+                <p class="text-secondary font-medium text-sm tracking-widest uppercase mb-4">
+                    The Problem
+                </p>
+                <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">
+                    Human-Centric Email<br>Breaks Automation
+                </h2>
+                <p class="text-lg text-gray-400 font-light">
+                    Traditional email services weren't designed for autonomous agents.
+                    Every step of the way, infrastructure built for humans creates friction for code.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Problem Card 1 -->
+                <div class="p-8 bg-dark-bg border border-dark-border rounded-xl">
+                    <div class="w-12 h-12 flex items-center justify-center border border-dark-border rounded-lg mb-6">
+                        <svg class="w-6 h-6 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">OAuth Flows</h3>
+                    <p class="text-gray-400 font-light">
+                        Authentication requiring human browser interaction breaks autonomous workflows dead in their tracks.
+                    </p>
+                </div>
+
+                <!-- Problem Card 2 -->
+                <div class="p-8 bg-dark-bg border border-dark-border rounded-xl">
+                    <div class="w-12 h-12 flex items-center justify-center border border-dark-border rounded-lg mb-6">
+                        <svg class="w-6 h-6 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">CAPTCHA Blocking</h3>
+                    <p class="text-gray-400 font-light">
+                        Visual puzzles designed to block bots prevent your agents from accessing essential services.
+                    </p>
+                </div>
+
+                <!-- Problem Card 3 -->
+                <div class="p-8 bg-dark-bg border border-dark-border rounded-xl">
+                    <div class="w-12 h-12 flex items-center justify-center border border-dark-border rounded-lg mb-6">
+                        <svg class="w-6 h-6 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">No API Access</h3>
+                    <p class="text-gray-400 font-light">
+                        Traditional email providers lack programmatic interfaces for sending, receiving, and managing messages.
+                    </p>
+                </div>
+
+                <!-- Problem Card 4 -->
+                <div class="p-8 bg-dark-bg border border-dark-border rounded-xl">
+                    <div class="w-12 h-12 flex items-center justify-center border border-dark-border rounded-lg mb-6">
+                        <svg class="w-6 h-6 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Shared IP Reputation</h3>
+                    <p class="text-gray-400 font-light">
+                        One bad actor on a shared IP damages deliverability for everyone. Your emails land in spam.
+                    </p>
+                </div>
+
+                <!-- Problem Card 5 -->
+                <div class="p-8 bg-dark-bg border border-dark-border rounded-xl">
+                    <div class="w-12 h-12 flex items-center justify-center border border-dark-border rounded-lg mb-6">
+                        <svg class="w-6 h-6 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Account Suspensions</h3>
+                    <p class="text-gray-400 font-light">
+                        Automated behavior triggers fraud detection. Accounts get suspended without warning or recourse.
+                    </p>
+                </div>
+
+                <!-- Problem Card 6 -->
+                <div class="p-8 bg-dark-bg border border-dark-border rounded-xl">
+                    <div class="w-12 h-12 flex items-center justify-center border border-dark-border rounded-lg mb-6">
+                        <svg class="w-6 h-6 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Time Waste</h3>
+                    <p class="text-gray-400 font-light">
+                        Developers spend countless hours building workarounds instead of focusing on core agent logic.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="py-24 grid-pattern">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="max-w-3xl mb-16">
+                <p class="text-primary font-medium text-sm tracking-widest uppercase mb-4">
+                    The Solution
+                </p>
+                <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">
+                    Built for Agents,<br>Not Humans
+                </h2>
+                <p class="text-lg text-gray-400 font-light">
+                    Every feature designed from the ground up for autonomous operation.
+                    API-first. No human touch required. Ever.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Solution Card 1 -->
+                <div class="p-10 bg-dark-surface border border-dark-border rounded-2xl">
+                    <div class="w-14 h-14 flex items-center justify-center bg-primary/10 border border-primary/20 rounded-xl mb-8">
+                        <svg class="w-7 h-7 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4">Agent-Native Architecture</h3>
+                    <p class="text-gray-400 font-light mb-6">
+                        Built from the ground up for programmatic access. Every feature accessible via clean REST APIs.
+                        No browser required.
+                    </p>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-center gap-3">
+                            <svg class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Full REST API coverage
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Webhook event streaming
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            SDKs for major languages
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Solution Card 2 -->
+                <div class="p-10 bg-dark-surface border border-dark-border rounded-2xl">
+                    <div class="w-14 h-14 flex items-center justify-center bg-primary/10 border border-primary/20 rounded-xl mb-8">
+                        <svg class="w-7 h-7 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4">Zero Human Touch</h3>
+                    <p class="text-gray-400 font-light mb-6">
+                        No OAuth flows. No CAPTCHA. No email verification loops.
+                        Agents can provision, configure, and operate completely autonomously.
+                    </p>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-center gap-3">
+                            <svg class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            API key authentication
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Self-service provisioning
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Automated reputation building
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Solution Card 3 -->
+                <div class="p-10 bg-dark-surface border border-dark-border rounded-2xl">
+                    <div class="w-14 h-14 flex items-center justify-center bg-primary/10 border border-primary/20 rounded-xl mb-8">
+                        <svg class="w-7 h-7 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4">Dedicated IP Pools</h3>
+                    <p class="text-gray-400 font-light mb-6">
+                        Your reputation is isolated. No shared IP damage from bad actors.
+                        Build and maintain pristine sender reputation automatically.
+                    </p>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-center gap-3">
+                            <svg class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Isolated IP reputation
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Automatic warm-up
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Deliverability monitoring
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Solution Card 4 -->
+                <div class="p-10 bg-dark-surface border border-dark-border rounded-2xl">
+                    <div class="w-14 h-14 flex items-center justify-center bg-primary/10 border border-primary/20 rounded-xl mb-8">
+                        <svg class="w-7 h-7 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4">Real-Time Observability</h3>
+                    <p class="text-gray-400 font-light mb-6">
+                        Complete visibility into email operations. Track delivery, opens, clicks, and bounces in real-time.
+                    </p>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-center gap-3">
+                            <svg class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Event streaming webhooks
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Detailed analytics dashboard
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Audit logs for compliance
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="py-24 bg-dark-surface border-y border-dark-border">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="max-w-3xl mb-16">
+                <p class="text-primary font-medium text-sm tracking-widest uppercase mb-4">
+                    How It Works
+                </p>
+                <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">
+                    Three Steps to<br>Autonomous Email
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Step 1 -->
+                <div class="relative">
+                    <div class="text-8xl font-bold text-dark-border absolute -top-6 -left-2">1</div>
+                    <div class="relative pt-12">
+                        <h3 class="text-2xl font-semibold mb-4">Provision Inbox</h3>
+                        <p class="text-gray-400 font-light">
+                            Single API call creates a dedicated inbox. Returns credentials instantly.
+                            No verification loops. No waiting.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative">
+                    <div class="text-8xl font-bold text-dark-border absolute -top-6 -left-2">2</div>
+                    <div class="relative pt-12">
+                        <h3 class="text-2xl font-semibold mb-4">Read & Send</h3>
+                        <p class="text-gray-400 font-light">
+                            Agent reads incoming mail via API. Sends responses programmatically.
+                            Full control over every message.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative">
+                    <div class="text-8xl font-bold text-dark-border absolute -top-6 -left-2">3</div>
+                    <div class="relative pt-12">
+                        <h3 class="text-2xl font-semibold mb-4">Receive Events</h3>
+                        <p class="text-gray-400 font-light">
+                            Webhooks push delivery, open, and reply events in real-time.
+                            Agent responds instantly to any trigger.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Agent Self-Registration CTA -->
+            <div class="mt-16 p-8 bg-dark-bg border border-dark-border rounded-xl">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2">Agents Can Self-Register</h3>
+                        <p class="text-gray-400">
+                            Visit <code class="text-primary bg-dark-surface px-2 py-1 rounded">/skill.md</code> for agent-readable registration instructions.
+                        </p>
+                    </div>
+                    <a
+                        href="/skill.md"
+                        class="px-6 py-3 border border-primary text-primary hover:bg-primary/10 rounded-lg transition-colors whitespace-nowrap"
+                    >
+                        View Agent Instructions
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="waitlist" class="py-24 grid-pattern relative overflow-hidden">
+        <!-- Decorative elements -->
+        <div class="absolute top-10 left-10 w-40 h-40 border border-primary/10 rotate-12 hidden lg:block"></div>
+        <div class="absolute bottom-10 right-10 w-24 h-24 border border-secondary/10 hidden lg:block"></div>
+
+        <div class="max-w-3xl mx-auto px-6 text-center relative z-10">
+            <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">
+                Ready to Give Your Agents<br>
+                <span class="gradient-text">Real Email Access</span>?
+            </h2>
+            <p class="text-xl text-gray-400 font-light mb-10">
+                Join the waitlist and be among the first to build with email infrastructure
+                designed for the autonomous future.
+            </p>
+
+            <!-- Secondary Waitlist Form -->
+            <form id="cta-waitlist" class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto" action="https://api.resend.com/emails" method="POST">
+                <div class="flex-1">
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        required
+                        class="w-full px-6 py-4 bg-dark-surface border border-dark-border rounded-lg text-white placeholder-gray-500 focus:outline-none input-glow transition-all"
+                    >
+                </div>
+                <button
+                    type="submit"
+                    class="px-8 py-4 bg-primary hover:bg-primary/90 text-white font-semibold rounded-lg transition-all hover:scale-105 active:scale-100 whitespace-nowrap"
+                >
+                    Join Waitlist
+                </button>
+            </form>
+
+            <p class="text-sm text-gray-500 mt-4">
+                We respect your privacy. Unsubscribe anytime.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-dark-surface border-t border-dark-border">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="flex items-center gap-6">
+                    <a href="/" class="text-lg font-bold">
+                        <span class="gradient-text">axinbox</span>
+                    </a>
+                    <span class="text-gray-600">|</span>
+                    <span class="text-sm text-gray-500">Email infrastructure for AI agents</span>
+                </div>
+
+                <div class="flex items-center gap-6 text-sm text-gray-400">
+                    <a href="#" class="hover:text-white transition-colors">Privacy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms</a>
+                    <a href="mailto:hello@axinbox.com" class="hover:text-white transition-colors">Contact</a>
+                </div>
+            </div>
+
+            <div class="mt-8 pt-8 border-t border-dark-border text-center text-sm text-gray-500">
+                &copy; 2024 axinbox. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-sm">
+        <div class="bg-dark-surface border border-dark-border rounded-2xl p-8 max-w-md mx-4 text-center">
+            <div class="w-16 h-16 mx-auto mb-6 flex items-center justify-center bg-primary/10 border border-primary/20 rounded-full">
+                <svg class="w-8 h-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">You're on the list!</h3>
+            <p class="text-gray-400 mb-6">
+                We'll notify you when axinbox is ready for early access. Get ready to give your agents real email capabilities.
+            </p>
+            <button onclick="closeModal()" class="px-6 py-3 bg-primary hover:bg-primary/90 text-white font-semibold rounded-lg transition-colors">
+                Got it
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Handle form submission
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const email = this.querySelector('input[name="email"]').value;
+
+                // For now, show success modal
+                // TODO: Integrate with Resend API when ready
+                document.getElementById('success-modal').classList.remove('hidden');
+                document.getElementById('success-modal').classList.add('flex');
+
+                // Clear form
+                this.reset();
+
+                // Store in localStorage for demo
+                const waitlist = JSON.parse(localStorage.getItem('waitlist') || '[]');
+                if (!waitlist.includes(email)) {
+                    waitlist.push(email);
+                    localStorage.setItem('waitlist', JSON.stringify(waitlist));
+                }
+            });
+        });
+
+        function closeModal() {
+            document.getElementById('success-modal').classList.add('hidden');
+            document.getElementById('success-modal').classList.remove('flex');
+        }
+
+        // Close modal on escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Close modal on backdrop click
+        document.getElementById('success-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
