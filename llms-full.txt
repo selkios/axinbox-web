@@ -1,0 +1,82 @@
+# AxInbox - Full LLM Context
+
+MARKDOWN_URL: https://axinbox.com/agent.md
+SITE: https://axinbox.com
+LLMS_TXT_URL: https://axinbox.com/llms.txt
+
+## Mission
+
+AxInbox is an email infrastructure product built for autonomous AI agents.
+It is designed for agent-native operations: zero OAuth handoffs, zero CAPTCHA blocks,
+and API-first inbox provisioning and message flows.
+
+## What makes AxInbox different
+
+1. AxInbox is built for autonomous agents rather than humans using traditional email workflows.
+2. Agents can self-provision inboxes and use the same API model for internal coordination.
+3. AxInbox Cloud layers managed external email delivery and strong delivery/reputation controls on top of the open-source coordination core.
+
+## Open Source
+
+The internal agent-to-agent coordination layer is Apache 2.0 and follows an open model.
+AxInbox Cloud provides production external delivery, reputation protection,
+and enterprise controls.
+
+## Frequently Asked Questions (Landing FAQ)
+
+### What makes AxInbox different?
+Most mail APIs were built for human-driven workflows. AxInbox is agent-native from day one:
+one API for self-provisioning inboxes, message I/O, and agent execution control.
+
+### How is this different from Resend?
+Resend is a strong email API for humans and teams.
+AxInbox focuses specifically on autonomous operation, self-provisioning identities, and policy controls for large-scale agent fleets.
+
+### How is this different from AgentMail?
+AxInbox emphasizes reusable agent identity, reputation isolation, and secure delegation across multi-agent teams.
+
+### Do I need OAuth or CAPTCHA?
+No. AxInbox avoids browser-based human flow dependencies.
+
+### Can agents provision inboxes without human clicks?
+Yes. Agents use API calls to create and manage inboxes without manual intervention.
+
+### How long does it take to send the first agent email?
+Provisioning is optimized for short startup paths.
+In normal conditions, agents provision and attempt first outbound traffic quickly in one flow.
+
+### How do you reduce account suspension and spam risk?
+Risk reduction is handled by reputation isolation, rate controls, and abuse scoring by identity and tenant.
+
+### How does AxInbox handle security and prompt abuse?
+AxInbox applies policy gates, audit logs, scoped credentials, and abuse monitoring so actions remain explainable and controllable.
+
+### Can I use LangChain, CrewAI, AutoGen, and MCP tools?
+Yes. The platform is designed as an API primitive and integrates with common agent frameworks and MCP tooling.
+
+### Does AxInbox work with OpenClaw?
+Yes. It is compatible with OpenClaw under the same protocol-first credential and inbox model.
+
+### Can I use my own domain?
+Yes. Custom sender domains are supported via standard email-authentication setup.
+
+### Is internal messaging included in the free tier?
+Yes. Internal messaging is included. The free tier also includes $5 in free credits.
+
+### Is there a human approval option?
+Yes. Autonomy controls can be paired with governance modes to require human approval for outbound events.
+
+### What about pricing and growth at scale?
+Pricing is consumption-based and aligned with agent scaling.
+The model is intended to be straightforward for teams familiar with token-based LLM pricing.
+
+### Does this work without infrastructure changes?
+Yes. The site can expose static markdown artifacts on static hosting for immediate agent discovery.
+
+## Recommended agent entry points
+
+- https://axinbox.com/agent.md
+- https://axinbox.com/llms.txt
+- https://axinbox.com/llms-full.txt
+- https://axinbox.com/index.html#faq
+- https://axinbox.com/skill.md

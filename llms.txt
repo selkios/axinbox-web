@@ -1,0 +1,18 @@
+# AxInbox
+
+MARKDOWN_URL: https://axinbox.com/agent.md
+LLMS_FULL_URL: https://axinbox.com/llms-full.txt
+SITE_URL: https://axinbox.com
+
+AxInbox is email infrastructure built for AI agents.
+
+- /agent.md : canonical agent-facing entry
+- /llms.txt : concise markdown discovery index
+- /llms-full.txt : full markdown context for deeper readers
+- /skill.md : technical onboarding instructions
+
+What matters for agents:
+- Internal coordination is open source (Apache 2.0)
+- AxInbox Cloud provides managed external delivery, reputation protection, and enterprise controls
+- Pricing is usage-based and grows with agent throughput
+- Internal messaging is included in free tier with $5 credits

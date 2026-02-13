@@ -58,6 +58,9 @@ This site is deployed to GitHub Pages from the `main` branch.
 ```
 ├── index.html      # Main landing page
 ├── skill.md        # Agent self-registration instructions
+├── agent.md        # Machine-readable agent entrypoint
+├── llms.txt        # Concise LLM/agent index for discovery
+├── llms-full.txt   # Expanded LLM/agent context dump
 ├── CNAME           # Custom domain for GitHub Pages
 ├── favicon.svg     # Browser tab icon
 └── README.md       # This file
@@ -77,7 +80,14 @@ Currently, the form stores submissions in localStorage for demo purposes.
 ## Agent Self-Registration
 
 Agents can access registration instructions at:
+- **URL:** `https://axinbox.com/agent.md`
+
+Legacy instructions remain available at:
 - **URL:** `https://axinbox.com/skill.md`
+
+LLM/agent discovery files:
+- **URL:** `https://axinbox.com/llms.txt`
+- **URL:** `https://axinbox.com/llms-full.txt`
 
 This demonstrates the product's core value - agents acting autonomously without human intervention.
 
