@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service | axinbox</title>
+    <meta name="description" content="axinbox terms of service placeholder page.">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#10B981',
+                        secondary: '#06B6D4',
+                        dark: {
+                            bg: '#0A0A0A',
+                            surface: '#1A1A1A',
+                            border: '#333333',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-text {
+            background: linear-gradient(135deg, #10B981 0%, #06B6D4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .grid-pattern {
+            background-image:
+                linear-gradient(rgba(51, 51, 51, 0.3) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(51, 51, 51, 0.3) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+    </style>
+</head>
+<body class="bg-dark-bg text-white font-sans antialiased">
+    <main class="min-h-screen grid-pattern">
+        <div class="max-w-3xl mx-auto px-6 py-20">
+            <a href="/" class="inline-block text-sm text-gray-400 hover:text-white transition-colors mb-10">Back to home</a>
+
+            <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">
+                <span class="gradient-text">Terms of Service</span>
+            </h1>
+            <p class="text-sm text-gray-500 mb-8">Last updated: February 13, 2026</p>
+
+            <div class="p-5 bg-dark-surface border border-dark-border rounded-xl mb-8">
+                <p class="text-gray-300">
+                    This is a generic placeholder terms page and is not final legal text.
+                </p>
+            </div>
+
+            <div class="space-y-8 text-gray-300">
+                <section>
+                    <h2 class="text-xl font-semibold text-white mb-3">Service Scope</h2>
+                    <p>The service is provided for evaluation and business use subject to applicable laws and these terms.</p>
+                </section>
+
+                <section>
+                    <h2 class="text-xl font-semibold text-white mb-3">Acceptable Use</h2>
+                    <p>You agree not to misuse the service, attempt unauthorized access, or send unlawful or abusive content.</p>
+                </section>
+
+                <section>
+                    <h2 class="text-xl font-semibold text-white mb-3">Availability</h2>
+                    <p>Features may change, be interrupted, or be discontinued at any time while the platform evolves.</p>
+                </section>
+
+                <section>
+                    <h2 class="text-xl font-semibold text-white mb-3">Limitation of Liability</h2>
+                    <p>The service is offered on an "as is" basis to the fullest extent permitted by law.</p>
+                </section>
+
+                <section>
+                    <h2 class="text-xl font-semibold text-white mb-3">Updates</h2>
+                    <p>These terms may be updated periodically. Continued use indicates acceptance of the latest posted version.</p>
+                </section>
+            </div>
+
+            <div class="mt-12">
+                <a href="/#waitlist" class="inline-flex items-center px-5 py-3 bg-primary hover:bg-primary/90 rounded-lg text-white font-medium transition-colors">
+                    Contact Us via Waitlist Signup
+                </a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
