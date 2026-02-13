@@ -72,6 +72,15 @@
         .input-glow:focus {
             box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.3);
         }
+        details summary {
+            list-style: none;
+        }
+        details summary::-webkit-details-marker {
+            display: none;
+        }
+        .faq-item[open] .faq-chevron {
+            transform: rotate(180deg);
+        }
     </style>
 </head>
 <body class="bg-dark-bg text-white font-sans antialiased">
@@ -649,76 +658,126 @@
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="p-8 bg-dark-surface border border-dark-border rounded-xl">
-                    <h3 class="text-xl font-semibold mb-3">What makes AxInbox different?</h3>
-                    <p class="text-gray-400 font-light">
+            <div class="space-y-4">
+                <details class="faq-item p-6 bg-dark-surface border border-dark-border rounded-xl" open>
+                    <summary class="faq-summary flex items-center justify-between gap-4 text-xl font-semibold text-white cursor-pointer">
+                        What makes AxInbox different?
+                        <svg class="faq-chevron w-5 h-5 text-gray-500 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </summary>
+                    <p class="mt-4 text-gray-400 font-light">
                         Most mail APIs were built for humans using Gmail-like tooling. AxInbox is agent-native from day one: one API for self-provisioning inboxes, message I/O, and agent execution control.
                     </p>
-                </div>
+                </details>
 
-                <div class="p-8 bg-dark-surface border border-dark-border rounded-xl">
-                    <h3 class="text-xl font-semibold mb-3">How is this different from Resend?</h3>
-                    <p class="text-gray-400 font-light">
+                <details class="faq-item p-6 bg-dark-surface border border-dark-border rounded-xl">
+                    <summary class="faq-summary flex items-center justify-between gap-4 text-xl font-semibold text-white cursor-pointer">
+                        How is this different from Resend?
+                        <svg class="faq-chevron w-5 h-5 text-gray-500 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </summary>
+                    <p class="mt-4 text-gray-400 font-light">
                         Resend is a strong email API for developers. AxInbox is specifically built for autonomous agents: programmatic self-provisioning, agent-specific identity, and governance controls that keep outbound behavior auditable across large fleets.
                     </p>
-                </div>
+                </details>
 
-                <div class="p-8 bg-dark-surface border border-dark-border rounded-xl">
-                    <h3 class="text-xl font-semibold mb-3">How is this different from AgentMail?</h3>
-                    <p class="text-gray-400 font-light">
+                <details class="faq-item p-6 bg-dark-surface border border-dark-border rounded-xl">
+                    <summary class="faq-summary flex items-center justify-between gap-4 text-xl font-semibold text-white cursor-pointer">
+                        How is this different from AgentMail?
+                        <svg class="faq-chevron w-5 h-5 text-gray-500 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </summary>
+                    <p class="mt-4 text-gray-400 font-light">
                         AgentMail pioneered dedicated agent inboxes. AxInbox focuses on native agent identity, reputation isolation, lifecycle inbox types, and secure delegation for multi-agent workflows, with stronger controls for scale.
                     </p>
-                </div>
+                </details>
 
-                <div class="p-8 bg-dark-surface border border-dark-border rounded-xl">
-                    <h3 class="text-xl font-semibold mb-3">Do I need OAuth or CAPTCHA flows?</h3>
-                    <p class="text-gray-400 font-light">
+                <details class="faq-item p-6 bg-dark-surface border border-dark-border rounded-xl">
+                    <summary class="faq-summary flex items-center justify-between gap-4 text-xl font-semibold text-white cursor-pointer">
+                        Do I need OAuth or CAPTCHA flows?
+                        <svg class="faq-chevron w-5 h-5 text-gray-500 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </summary>
+                    <p class="mt-4 text-gray-400 font-light">
                         No. AxInbox is designed for autonomous systems and avoids OAuth/consent screens. Agents create and manage inbox identities through programmatic credentials instead of browser-based handshakes.
                     </p>
-                </div>
+                </details>
 
-                <div class="p-8 bg-dark-surface border border-dark-border rounded-xl">
-                    <h3 class="text-xl font-semibold mb-3">Can agents provision inboxes without human clicks?</h3>
-                    <p class="text-gray-400 font-light">
+                <details class="faq-item p-6 bg-dark-surface border border-dark-border rounded-xl">
+                    <summary class="faq-summary flex items-center justify-between gap-4 text-xl font-semibold text-white cursor-pointer">
+                        Can agents provision inboxes without human clicks?
+                        <svg class="faq-chevron w-5 h-5 text-gray-500 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </summary>
+                    <p class="mt-4 text-gray-400 font-light">
                         Yes. Your agents call the API once to create a dedicated inbox, then use the returned credentials to read, send, and route mail in the same workflow.
                     </p>
-                </div>
+                </details>
 
-                <div class="p-8 bg-dark-surface border border-dark-border rounded-xl">
-                    <h3 class="text-xl font-semibold mb-3">How do you reduce account suspension and spam risk?</h3>
-                    <p class="text-gray-400 font-light">
+                <details class="faq-item p-6 bg-dark-surface border border-dark-border rounded-xl">
+                    <summary class="faq-summary flex items-center justify-between gap-4 text-xl font-semibold text-white cursor-pointer">
+                        How do you reduce account suspension and spam risk?
+                        <svg class="faq-chevron w-5 h-5 text-gray-500 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </summary>
+                    <p class="mt-4 text-gray-400 font-light">
                         AxInbox uses reputation isolation, rate controls, and abuse scoring by identity and tenant. New agents start with safer defaults and can be progressively promoted as trust is established.
                     </p>
-                </div>
+                </details>
 
-                <div class="p-8 bg-dark-surface border border-dark-border rounded-xl">
-                    <h3 class="text-xl font-semibold mb-3">How does AxInbox handle security and prompt abuse?</h3>
-                    <p class="text-gray-400 font-light">
+                <details class="faq-item p-6 bg-dark-surface border border-dark-border rounded-xl">
+                    <summary class="faq-summary flex items-center justify-between gap-4 text-xl font-semibold text-white cursor-pointer">
+                        How does AxInbox handle security and prompt abuse?
+                        <svg class="faq-chevron w-5 h-5 text-gray-500 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </summary>
+                    <p class="mt-4 text-gray-400 font-light">
                         Incoming content is sanitized and normalized before reaching model execution. We enforce scoped identities, audit logs, and strict policy gates so email events remain explainable and reversible.
                     </p>
-                </div>
+                </details>
 
-                <div class="p-8 bg-dark-surface border border-dark-border rounded-xl">
-                    <h3 class="text-xl font-semibold mb-3">Can I use LangChain, CrewAI, AutoGen, and MCP tools?</h3>
-                    <p class="text-gray-400 font-light">
+                <details class="faq-item p-6 bg-dark-surface border border-dark-border rounded-xl">
+                    <summary class="faq-summary flex items-center justify-between gap-4 text-xl font-semibold text-white cursor-pointer">
+                        Can I use LangChain, CrewAI, AutoGen, and MCP tools?
+                        <svg class="faq-chevron w-5 h-5 text-gray-500 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </summary>
+                    <p class="mt-4 text-gray-400 font-light">
                         Yes. AxInbox is purpose-built as a protocol-level primitive and integrates with common agent frameworks through lightweight SDK/tool wrappers, plus MCP and documentation-first onboarding.
                     </p>
-                </div>
+                </details>
 
-                <div class="p-8 bg-dark-surface border border-dark-border rounded-xl">
-                    <h3 class="text-xl font-semibold mb-3">Is there a human approval option?</h3>
-                    <p class="text-gray-400 font-light">
+                <details class="faq-item p-6 bg-dark-surface border border-dark-border rounded-xl">
+                    <summary class="faq-summary flex items-center justify-between gap-4 text-xl font-semibold text-white cursor-pointer">
+                        Is there a human approval option?
+                        <svg class="faq-chevron w-5 h-5 text-gray-500 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </summary>
+                    <p class="mt-4 text-gray-400 font-light">
                         Yes. We support both autonomous and governed workflows. You can keep outbound communication in controlled modes and only enable higher privileges where your risk policy allows.
                     </p>
-                </div>
+                </details>
 
-                <div class="p-8 bg-dark-surface border border-dark-border rounded-xl">
-                    <h3 class="text-xl font-semibold mb-3">What about pricing and growth at scale?</h3>
-                    <p class="text-gray-400 font-light">
+                <details class="faq-item p-6 bg-dark-surface border border-dark-border rounded-xl">
+                    <summary class="faq-summary flex items-center justify-between gap-4 text-xl font-semibold text-white cursor-pointer">
+                        What about pricing and growth at scale?
+                        <svg class="faq-chevron w-5 h-5 text-gray-500 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </summary>
+                    <p class="mt-4 text-gray-400 font-light">
                         We provide free onboarding plus scalable paid tiers. The model is built for scale from a single agent to thousands, with per-inbox and usage controls so costs stay predictable.
                     </p>
-                </div>
+                </details>
             </div>
         </div>
     </section>
